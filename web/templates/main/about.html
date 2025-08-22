@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .slideshow {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 50px 20px;
+      box-sizing: border-box;
+    }
+
+    .slide.active {
+      display: flex;
+      animation: fade 1s ease-in-out;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .slide:nth-child(1) { background: #0077cc; color: white; }
+    .slide:nth-child(2) { background: #28a745; color: white; }
+    .slide:nth-child(3) { background: #333; color: white; }
+
+    .slide h1 {
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+    }
+
+    .slide p {
+      font-size: 1.4rem;
+      max-width: 800px;
+      margin-bottom: 15px;
+    }
+
+    .icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .content h2 {
+      font-size: 2.4rem;
+      color: #0077cc;
+      margin-bottom: 25px;
+    }
+
+    .content p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 18px 50px;
+      font-size: 1.4rem;
+      border-radius: 10px;
+      background-color: #0077cc;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .buttons a:hover {
+      background-color: #005fa3;
+    }
+
+    .buttons a.secondary {
+      background-color: #28a745;
+    }
+
+    .buttons a.secondary:hover {
+      background-color: #1e7e34;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slideshow -->
+  <div class="slideshow">
+    <div class="slide active">
+      <div class="icon">🌍</div>
+      <h1>Welcome to Our World</h1>
+      <p>We’re a team of passionate developers and designers who believe in the power of clean code and beautiful interfaces.</p>
+      <p>Our platform is built to be fast, responsive, and user-friendly—whether you're browsing products or managing content.</p>
+    </div>
+    <div class="slide">
+      <div class="icon">🎯</div>
+      <h1>Our Mission</h1>
+      <p>To empower creators, entrepreneurs, and businesses with full-stack solutions that are scalable, secure, and visually stunning.</p>
+      <p>We combine Django, React, and custom design to deliver seamless digital experiences tailored to your goals.</p>
+    </div>
+    <div class="slide">
+      <div class="icon">👨‍💻</div>
+      <h1>Meet the Team</h1>
+      <p>Led by uwn, a pragmatic full-stack developer with a sharp eye for UI/UX and a passion for iterative improvement.</p>
+      <p>We thrive on feedback, adapt quickly, and build with purpose—always pushing for better performance and design harmony.</p>
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <div class="content">
+    <h2>About Us</h2>
+    <p>This Django project is more than just code—it's a platform for creativity, functionality, and growth. We specialize in full-stack development, blending React, Django, and custom design to create seamless digital experiences.</p>
+
+    <!-- Big Buttons -->
+    <div class="buttons">
+      <a href="/">🏠 Back Home</a>
+      <a href="/contact/" class="secondary">📬 Contact Us</a>
+    </div>
+  </div>
+
+  <!-- Slideshow Script -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+  </script>
+
+</body>
+</html>
